@@ -167,6 +167,10 @@ COPY ./gunicorn_conf.py /gunicorn_conf.py
 # Nginx additional configs
 COPY app/nginx.conf /etc/nginx/conf.d/nginx.conf
 
+#install requirements.txt
+COPY ./requirements.txt /
+RUN pip install -r /requirements.txt
+
 # Add app
 COPY ./app /app
 WORKDIR /app
